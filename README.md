@@ -188,3 +188,90 @@ Creación de dos máquinas virtuales con una red virtual independiente para cada
 
 ![P9-30](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-30.PNG)
 
+- Abrimos el Shell de Azure, para ello presionamos el botón superior indicado en la siguiente imagen
+
+![P9-31](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-31.PNG)
+
+- Se abrirá una terminal en la parte inferior con un mensaje como el siguiente
+
+![P9-32](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-32.PNG)
+
+- Si no se ha creado una cuenta de almacenamiento anteriormente, se mostrará el siguiente aviso. Aquí se presiona el botón de "crear almacenamiento"
+
+![P9-33](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-33.PNG)
+
+- Se selecciona PowerShell y la terminal cambiará de color y se verá así
+
+![P9-34](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-34.PNG)
+
+- Una vez termine de cargar, se mostrará lo siguiente
+
+![P9-35](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-35.PNG)
+
+- Ahora volvemos a la página del recurso de la primer máquina virtual que creamos y en el menú lateral izquierdo seleccionamos "conectar"
+
+![P9-36](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-36.PNG)
+
+- Después, en el apartado SSH seleccionamos y copiamos el comando que nos muestre en la siguiente ubicación (único y diferente por usuario)
+
+![P9-37](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-37.PNG)
+
+- Volvemos a la página de la terminal y escribimos "ssh" y después le pegamos el texto que copiamos anteriormente, se vería algo así
+
+``` Bash
+ssh AlanAlv@20.53.228.47
+```
+![P9-38](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-38.PNG)
+- Presionamos enter y nos mostrará el siguiente aviso, escribimos "yes" y damos enter
+
+![P9-39](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-39.PNG)
+
+- Escribimos la contraseña de la cuenta que creamos en esa máquina virtual y damos enter (puede que parezca que no estamos escribiendo, pero si lo hacemos)
+
+![P9-40](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-40.PNG)
+
+- Escribimos el siguiente código para verificar si la conexión fue exitosa
+
+``` Bash
+sudo apt-get moo
+```
+
+- Debe aparecernos algo así
+
+![P9-41](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-41.PNG)
+
+- Después, volvemos a la pestaña con el recurso de la primera red virtual que creamos (con la que conectamos la primer VM) y en el menú lateral izquierdo desplazamos un poco hacia abajo hasta encontrar el apartado "emparejamientos" y damos click
+
+![P9-42](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-42.PNG)
+
+- Nos mostrará la siguiente ventana. Seleccionamos "agregar"
+
+![P9-43](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-43.PNG)
+
+- Colocamos un nombre del vínculo de emparejamiento, y en el nombre del vinculo de la red virtual remota colocamos el mismo nombre la primer pero a la inversa, como se muestra a continuación
+
+![P9-44](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-44.PNG)
+
+- Bajamos sobre la misma página y en el apartado de "red virtual" seleccionamos el nombre de la segunda red virtual que creamos y finalmente presionamos "agregar
+
+![P9-45](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-45.PNG)
+
+- Se mostrará el emparejamiento creado parecido al siguiente
+
+![P9-46](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-46.PNG)
+
+- Presionamos en el botón actualizar cada minuto hasta que en el estado aparezca "conectado"
+
+![P9-47](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-47.PNG)
+
+- Ahora volvemos a la terminal y escribimos el siguiente comando y damos enter
+
+```Bash
+ping 10.0.0.4
+```
+![P9-48](https://github.com/AlanAlvaradoR/Azure-Conectar-Vms-con-diferentes-redes-virtuales-y-subnets/blob/main/imagenes/P9-48.PNG)
+
+- NOTA: en este último paso se debe poner la dirección IP de la segunda VM que creamos que puede consultarse accediendo a la red virtual que creamos -> dispositivos conectados
+
+
+
